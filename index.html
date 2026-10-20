@@ -1,29 +1,173 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A student-focused college website created by Mayank Sharma, Section AK.">
-  <title>Campus Connect | Mayank Sharma</title>
-  <style>
-    :root{--bg:#080d19;--panel:#111a2d;--panel2:#17233b;--text:#f1f5ff;--muted:#a8b5d1;--blue:#8da7ff;--mint:#65e3c0;--line:#ffffff19}
-    *{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#26386a 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,90%);margin:auto}
-    header{position:sticky;top:0;z-index:10;background:#080d19e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:72px}.logo{font-weight:900;letter-spacing:.5px}.logo b{color:var(--mint)}.navlinks{display:flex;gap:20px;flex-wrap:wrap}.navlinks a{color:var(--muted);font-size:.92rem}.navlinks a:hover{color:#fff}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:42px;padding:86px 0 76px;min-height:75vh}.kicker{color:var(--mint);text-transform:uppercase;font-weight:800;font-size:.78rem;letter-spacing:2px}h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:1.04;letter-spacing:-2px;margin:14px 0 20px}h1 span{color:var(--blue)}.lead{font-size:1.08rem;color:var(--muted);max-width:650px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid #ffffff2a;font-weight:750;transition:transform .2s}.btn:hover{transform:translateY(-2px)}.btn.primary{background:linear-gradient(120deg,var(--blue),#c3a8ff);color:#0a1020;border:0}
-    .hero-card{background:linear-gradient(145deg,#1c2a49,#10182a);border:1px solid var(--line);border-radius:26px;padding:27px;box-shadow:0 25px 70px #0005}.symbol{width:78px;height:78px;display:grid;place-items:center;border-radius:23px;background:linear-gradient(135deg,var(--blue),var(--mint));color:#0a1020;font-size:2rem;font-weight:900;margin-bottom:18px}.hero-card h2{margin:0 0 6px}.muted{color:var(--muted)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{border:1px solid var(--line);background:#ffffff09;padding:6px 10px;border-radius:999px;font-size:.8rem}
-    section{padding:72px 0}.section-title{font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.15;margin:10px 0}.intro{max-width:720px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:23px}.card h3{margin:8px 0}.card p{margin:0;color:var(--muted)}.emoji{font-size:1.65rem}.number{color:var(--mint);font-size:.78rem;letter-spacing:1.5px;font-weight:800}.events{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:25px}.event{display:flex;gap:16px;padding:20px;background:var(--panel2);border:1px solid var(--line);border-radius:16px}.datebox{min-width:58px;height:62px;border-radius:13px;display:grid;place-content:center;text-align:center;background:#8da7ff20;color:var(--blue);font-weight:800;line-height:1.15}.event h3{margin:0 0 5px}.event p{margin:0;color:var(--muted);font-size:.92rem}
-    .notice{margin-top:22px;border:1px solid #65e3c044;background:#65e3c00d;border-radius:15px;padding:16px;color:var(--muted)}.contact{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,#1b2947,#111a2d)}footer{padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
-    @media(max-width:760px){.hero{grid-template-columns:1fr;padding:62px 0 42px;min-height:auto}.grid{grid-template-columns:1fr}.events{grid-template-columns:1fr}.navlinks{gap:10px}.navlinks a{font-size:.8rem}h1{letter-spacing:-1px}.hero-card{max-width:520px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineFind | Mayank Sharma</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#121419;color:#f5f5f5;font-family:Arial,sans-serif}
+header{padding:20px 7%;background:#191c23;border-bottom:1px solid #30333b;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#e7b96b}
+nav a{color:#ccc;text-decoration:none;margin-left:20px;font-size:14px}
+main{max-width:1100px;margin:auto;padding:35px 20px}
+.hero{padding:25px 0}
+.tag{color:#e7b96b;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(36px,6vw,55px);margin:12px 0}
+h1 span{color:#e7b96b}
+p{color:#aaa;line-height:1.7}
+.search{display:flex;gap:10px;margin:25px 0;max-width:650px}
+input,select{background:#20232b;border:1px solid #393d47;color:white;padding:14px;border-radius:7px;font-size:15px}
+input{flex:1;min-width:0}
+button{background:#e7b96b;color:#211b11;border:0;border-radius:7px;padding:12px 18px;font-weight:bold;cursor:pointer}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 30px}
+.chip{background:#20232b;color:#ddd;border:1px solid #393d47;padding:9px 14px;border-radius:20px}
+.chip.active{background:#e7b96b;color:#211b11}
+.heading{display:flex;justify-content:space-between;align-items:center;margin:25px 0 15px}
+.heading h2{font-size:23px}
+#count{font-size:13px;color:#aaa}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:#1d2027;border:1px solid #30333b;border-radius:10px;overflow:hidden}
+.poster{height:240px;background:#292d36;display:flex;align-items:center;justify-content:center;font-size:55px}
+.poster img{width:100%;height:100%;object-fit:cover}
+.info{padding:13px}
+.info h3{margin:0 0 7px;font-size:16px}
+.meta{font-size:12px;color:#aaa}
+.rating{color:#e7b96b;margin:10px 0;font-size:13px}
+.details{width:100%;padding:9px}
+.empty{grid-column:1/-1;padding:30px;text-align:center;color:#aaa;background:#1d2027;border-radius:9px}
+.about{border-top:1px solid #30333b;margin-top:55px;padding-top:30px}
+footer{text-align:center;padding:24px;border-top:1px solid #30333b;color:#aaa;font-size:13px}
+dialog{background:#1d2027;color:white;border:1px solid #444;border-radius:12px;max-width:450px;width:90%;padding:25px}
+dialog::backdrop{background:#000b}
+.close{float:right;background:#333;color:white}
+@media(max-width:750px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.poster{height:210px}header{padding:17px 5%}nav a{margin-left:10px;font-size:12px}.search{flex-wrap:wrap}.search input{width:100%;flex-basis:100%}}
+</style>
 </head>
 <body>
-<header><div class="wrap"><nav><a class="logo" href="#home">CAMPUS<b>+</b></a><div class="navlinks"><a href="#about">About</a><a href="#facilities">Facilities</a><a href="#life">Campus Life</a><a href="#contact">Contact</a></div></nav></div></header>
+<header>
+  <div class="logo">Cine<span>Find</span></div>
+  <nav><a href="#">Home</a><a href="#movies">Movies</a><a href="#about">About</a></nav>
+</header>
+
 <main>
-  <div class="wrap hero" id="home"><div><div class="kicker">A student-focused college website</div><h1>Learn. Grow.<br><span>Build your future.</span></h1><p class="lead">Welcome to Campus Connect — a sample college information website designed to bring student resources, campus facilities, and college life together in one place.</p><div class="buttons"><a class="btn primary" href="#facilities">Explore Campus ↓</a><a class="btn" href="#about">Discover more</a></div></div>
-  <aside class="hero-card"><div class="symbol">C+</div><div class="kicker">Student community</div><h2>Campus Connect</h2><p class="muted">A concept website created as a web development assignment by Mayank Sharma, Section AK.</p><div class="chips"><span class="chip">Student resources</span><span class="chip">Campus life</span><span class="chip">Learning</span></div></aside></div>
-  <section id="about"><div class="wrap"><div class="kicker">About this website</div><h2 class="section-title">A digital space for campus life.</h2><p class="intro">Campus Connect is a sample college website concept. It shows how a college can present useful information in a clean, modern, mobile-friendly format. This is a student project and is not an official website of any institution.</p><div class="grid"><article class="card"><div class="emoji">🎓</div><h3>Learning first</h3><p>Encouraging students to explore subjects, develop skills, and keep learning beyond the classroom.</p></article><article class="card"><div class="emoji">🤝</div><h3>Community</h3><p>Helping students discover clubs, activities, and opportunities to work together.</p></article><article class="card"><div class="emoji">🌱</div><h3>Personal growth</h3><p>Making room for creativity, confidence, collaboration, and new experiences.</p></article></div></div></section>
-  <section id="facilities"><div class="wrap"><div class="kicker">Explore the campus</div><h2 class="section-title">Facilities & resources</h2><p class="intro">A college campus is more than classrooms. These sample sections highlight spaces and resources that support student life.</p><div class="grid"><article class="card"><div class="emoji">📚</div><h3>Library</h3><p>A quiet space for reading, research, revision, and independent study.</p></article><article class="card"><div class="emoji">💻</div><h3>Computer Lab</h3><p>A place to practise digital skills, explore technology, and work on projects.</p></article><article class="card"><div class="emoji">🏟️</div><h3>Sports & Recreation</h3><p>Activities that help students stay engaged, collaborate, and enjoy campus life.</p></article><article class="card"><div class="emoji">🧑‍🏫</div><h3>Classrooms</h3><p>Learning spaces for discussions, lectures, presentations, and group work.</p></article><article class="card"><div class="emoji">🧭</div><h3>Student Support</h3><p>Guidance and helpful information for students as they navigate college life.</p></article><article class="card"><div class="emoji">🎨</div><h3>Clubs & Creativity</h3><p>Opportunities to share interests, try new activities, and build teamwork.</p></article></div></div></section>
-  <section id="life"><div class="wrap"><div class="kicker">Beyond the classroom</div><h2 class="section-title">Campus life & activities</h2><p class="intro">Here are example activities that could be featured on a college noticeboard. They are illustrative ideas, not confirmed real events.</p><div class="events"><article class="event"><div class="datebox">01<br><small>IDEA</small></div><div><h3>Orientation Day</h3><p>Meet classmates, learn about campus resources, and get comfortable in a new environment.</p></div></article><article class="event"><div class="datebox">02<br><small>IDEA</small></div><div><h3>Tech & Innovation Club</h3><p>Share project ideas, practise problem-solving, and explore new technologies.</p></div></article><article class="event"><div class="datebox">03<br><small>IDEA</small></div><div><h3>Cultural Fest</h3><p>Celebrate music, art, performances, and the many interests within the student community.</p></div></article><article class="event"><div class="datebox">04<br><small>IDEA</small></div><div><h3>Sports Meet</h3><p>Take part in friendly games that encourage teamwork and participation.</p></div></article></div><div class="notice"><strong style="color:var(--mint)">Project note:</strong> This is a demonstration website. Replace sample details with verified information if you adapt it for a real college.</div></div></section>
-  <section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">Get involved</div><h2 class="section-title">Make your campus experience count.</h2><p class="muted">Keep learning, take part, and make the most of every opportunity.</p></div><a class="btn primary" href="#home">Back to top ↑</a></div></div></section>
-</main><footer><div class="wrap">© <span id="year"></span> Campus Connect · Student project by Mayank Sharma · Section AK</div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body></html>
+<section class="hero">
+  <div class="tag">Your personal movie guide</div>
+  <h1>Find a film.<br><span>Find your story.</span></h1>
+  <p>Search movies, explore genres and discover your next favourite film.</p>
+  <form class="search" id="searchForm">
+    <input id="query" placeholder="Search movie titles..." aria-label="Search movies">
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<section id="movies">
+  <div class="heading"><h2>Explore Movies</h2><span id="count"></span></div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="about" id="about">
+  <div class="tag">About this project</div>
+  <h2>Movies made easier to discover.</h2>
+  <p>CineFind is a movie discovery website created by Mayank Sharma, Section AK, as a web development assignment. Explore movie titles, search by genre and view movie information through a simple, responsive interface.</p>
+  <p><strong>Created by:</strong> Mayank Sharma<br><strong>Section:</strong> AK</p>
+</section>
+</main>
+
+<footer>CineFind · Student Project by Mayank Sharma · Section AK</footer>
+
+<dialog id="details">
+  <button class="close" id="close">Close</button>
+  <div id="detailContent"></div>
+</dialog>
+
+<script>
+const movies=[
+{title:"Inception",year:2010,genre:"Sci-Fi",rating:"8.8",emoji:"🌀",desc:"A skilled thief enters people's dreams to steal secrets and faces a challenging mission."},
+{title:"Interstellar",year:2014,genre:"Sci-Fi",rating:"8.7",emoji:"🚀",desc:"Explorers travel beyond Earth in search of a future for humanity."},
+{title:"The Dark Knight",year:2008,genre:"Action",rating:"9.0",emoji:"🦇",desc:"Batman faces a dangerous criminal who challenges Gotham City."},
+{title:"The Shawshank Redemption",year:1994,genre:"Drama",rating:"9.3",emoji:"🎭",desc:"Two prisoners build a friendship and hold on to hope through difficult years."},
+{title:"La La Land",year:2016,genre:"Romance",rating:"8.0",emoji:"🎹",desc:"A musician and an aspiring actor pursue their dreams in Los Angeles."},
+{title:"The Avengers",year:2012,genre:"Action",rating:"8.0",emoji:"🦸",desc:"A team of heroes comes together to protect the world."},
+{title:"Toy Story",year:1995,genre:"Animation",rating:"8.3",emoji:"🧸",desc:"Toys come to life when humans are not around."},
+{title:"Finding Nemo",year:2003,genre:"Animation",rating:"8.2",emoji:"🐠",desc:"A clownfish journeys across the ocean to find his missing son."},
+{title:"The Notebook",year:2004,genre:"Romance",rating:"7.8",emoji:"❤️",desc:"A romantic story about love, memories and the passage of time."},
+{title:"The Matrix",year:1999,genre:"Sci-Fi",rating:"8.7",emoji:"💻",desc:"A computer programmer discovers a startling truth about reality."},
+{title:"Jurassic Park",year:1993,genre:"Adventure",rating:"8.2",emoji:"🦖",desc:"A theme park filled with cloned dinosaurs turns into an adventure."},
+{title:"Coco",year:2017,genre:"Animation",rating:"8.4",emoji:"🎸",desc:"A young musician journeys into a colourful world of family memories."}
+];
+
+let genre="All";
+let query="";
+const genres=["All",...new Set(movies.map(m=>m.genre))];
+const grid=document.getElementById("grid");
+const filters=document.getElementById("filters");
+
+genres.forEach(g=>{
+ const b=document.createElement("button");
+ b.className="chip"+(g==="All"?" active":"");
+ b.textContent=g;
+ b.onclick=()=>{
+   genre=g;
+   document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));
+   render();
+ };
+ filters.appendChild(b);
+});
+
+function render(){
+ const found=movies.filter(m=>
+   (genre==="All"||m.genre===genre)&&
+   (m.title.toLowerCase().includes(query.toLowerCase())||
+    m.genre.toLowerCase().includes(query.toLowerCase())||
+    String(m.year).includes(query))
+ );
+ document.getElementById("count").textContent=found.length+" movies";
+ grid.innerHTML="";
+ if(!found.length){
+   grid.innerHTML='<div class="empty">No movies found. Try another title or genre.</div>';
+   return;
+ }
+ found.forEach(m=>{
+   const card=document.createElement("article");
+   card.className="card";
+   card.innerHTML=`
+    <div class="poster" role="img" aria-label="${m.title}">${m.emoji}</div>
+    <div class="info">
+      <h3>${m.title}</h3>
+      <div class="meta">${m.year} · ${m.genre}</div>
+      <div class="rating">★ ${m.rating} / 10</div>
+      <button class="details">View Details</button>
+    </div>`;
+   card.querySelector("button").onclick=()=>showDetails(m);
+   grid.appendChild(card);
+ });
+}
+
+function showDetails(m){
+ document.getElementById("detailContent").innerHTML=`
+   <div style="font-size:48px;margin-top:20px">${m.emoji}</div>
+   <h2>${m.title}</h2>
+   <p>${m.year} · ${m.genre} · ★ ${m.rating}/10</p>
+   <p>${m.desc}</p>`;
+ document.getElementById("details").showModal();
+}
+
+document.getElementById("searchForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ query=document.getElementById("query").value.trim();
+ render();
+ document.getElementById("movies").scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("query").addEventListener("input",e=>{
+ query=e.target.value.trim();
+ render();
+});
+document.getElementById("close").onclick=()=>document.getElementById("details").close();
+render();
+</script>
+</body>
+  </html>
+
