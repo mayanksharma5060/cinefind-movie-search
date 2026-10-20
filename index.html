@@ -3,21 +3,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CineFind | Mayank Sharma</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CineFind | Hollywood Movies</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b1020;color:#f5f5ff;font-family:Arial,sans-serif}
-header{text-align:center;padding:28px 15px;background:linear-gradient(135deg,#21164b,#10172c);border-bottom:1px solid #303653}
+body{margin:0;background:#0b1020;color:#f5f6ff;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 15px;background:linear-gradient(135deg,#25164e,#10172d);border-bottom:1px solid #303653}
 .logo{font-size:42px;font-weight:900;letter-spacing:-2px}
 .logo span{color:#a394ff}
 header p{color:#b9bfd5}
-.search{display:flex;gap:8px;max-width:650px;margin:22px auto 0}
+.search{display:flex;gap:8px;max-width:700px;margin:20px auto 0}
 input,select{padding:13px;border-radius:10px;border:1px solid #3b4260;background:#10182b;color:white;font-size:15px}
 input{flex:1;min-width:0}
-select{max-width:135px}
+select{max-width:160px}
 main{max-width:1200px;margin:auto;padding:22px 15px}
-.heading{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 h2{font-size:21px}
 #count{color:#aeb6d0;font-size:13px}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 22px}
@@ -26,12 +26,12 @@ h2{font-size:21px}
 .grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
 .card{overflow:hidden;border:1px solid #29334e;border-radius:13px;background:#151d32;cursor:pointer;transition:.2s}
 .card:hover{transform:translateY(-4px);border-color:#9484ff}
-.poster{height:205px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;text-align:center;padding:10px;background:linear-gradient(145deg,var(--a),var(--b))}
+.poster{height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;background:linear-gradient(145deg,var(--a),var(--b));position:relative}
 .poster:before{content:"";position:absolute;width:125px;height:125px;border:1px solid #ffffff40;border-radius:50%}
 .emoji{font-size:48px;z-index:1}
 .poster strong{z-index:1;margin-top:14px;font-size:12px;text-transform:uppercase;letter-spacing:1px;text-shadow:0 2px 5px #000}
 .info{padding:12px}
-.title{font-size:15px;font-weight:bold;line-height:1.35}
+.title{font-size:14px;font-weight:bold;line-height:1.35}
 .meta{font-size:12px;color:#aeb6d0;margin-top:7px;display:flex;justify-content:space-between;gap:5px}
 .rating{color:#ffd66b}
 .tag{display:inline-block;background:#292347;color:#c8bdff;border-radius:5px;padding:4px 6px;font-size:11px;margin-top:9px}
@@ -40,147 +40,161 @@ footer{text-align:center;padding:25px;color:#8993b0;border-top:1px solid #252e48
 .modal{display:none;position:fixed;inset:0;background:#000b;z-index:10;align-items:center;justify-content:center;padding:20px}
 .modal.show{display:flex}
 .modalbox{max-width:430px;width:100%;padding:25px;background:#171f35;border:1px solid #42496a;border-radius:16px}
-.modalbox h2{margin-top:0}
 .close{float:right;background:#393456;color:white;border:0;border-radius:7px;padding:8px 12px;cursor:pointer}
 @media(max-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.poster{height:190px}.logo{font-size:36px}header{padding:24px 12px}.search{flex-wrap:wrap}input{width:100%;flex-basis:100%}select{max-width:none;width:100%}}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.poster{height:180px}.logo{font-size:36px}.search{flex-wrap:wrap}input{width:100%;flex-basis:100%}select{max-width:none;width:100%}}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">Cine<span>Find</span> 🎬</div>
-  <p>Discover movies. Explore stories. Find your next favourite.</p>
-  <div class="search">
-    <input id="search" type="search" placeholder="Search movies, genres or years...">
-    <select id="sort">
-      <option value="default">Featured</option>
-      <option value="rating">Top rated</option>
-      <option value="year">Newest first</option>
-      <option value="az">A to Z</option>
-    </select>
-  </div>
+<div class="logo">Cine<span>Find</span> 🎬</div>
+<p>Discover the best of Hollywood — action, sci-fi, fantasy, thrillers and more.</p>
+<div class="search">
+<input id="search" type="search" placeholder="Search movies, genres or years...">
+<select id="sort">
+<option value="featured">Featured</option>
+<option value="rating">Top rated</option>
+<option value="year">Newest first</option>
+<option value="az">A to Z</option>
+</select>
+</div>
 </header>
 <main>
-  <div class="heading">
-    <h2>Explore Movies</h2>
-    <span id="count"></span>
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="movies"></div>
+<div class="heading"><h2>Hollywood Collection</h2><span id="count"></span></div>
+<div class="filters" id="filters"></div>
+<div class="grid" id="movies"></div>
 </main>
-<footer>
-  CineFind • Created by Mayank Sharma • Section AK<br><br>
-  Movie information in this demo is a manually added sample list.
-</footer>
+<footer>CineFind • Created by Mayank Sharma • Section AK<br><br>Hollywood movie sample collection. Poster artwork uses stylized emoji cards.</footer>
 <div class="modal" id="modal">
-  <div class="modalbox">
-    <button class="close" onclick="closeModal()">Close ✕</button>
-    <div id="details"></div>
-  </div>
+<div class="modalbox"><button class="close" onclick="closeModal()">Close ✕</button><div id="details"></div></div>
 </div>
 <script>
 const data = [
-["Inception","Sci-Fi",2010,8.8,"🌀","#5141a3","#151c45"],
-["Interstellar","Sci-Fi",2014,8.7,"🚀","#174c78","#10182f"],
-["The Dark Knight","Action",2008,9.0,"🦇","#41434c","#11131a"],
-["Oppenheimer","Drama",2023,8.3,"💥","#a74328","#281b22"],
-["The Batman","Action",2022,7.8,"🦇","#5d292e","#111522"],
-["Dune","Sci-Fi",2021,8.0,"🏜️","#c18a4b","#422a42"],
-["Dune: Part Two","Sci-Fi",2024,8.5,"🌅","#d4a15d","#512e35"],
-["Avatar","Fantasy",2009,7.9,"🌌","#177da0","#123b65"],
-["Avatar: The Way of Water","Fantasy",2022,7.6,"🌊","#1d9bb8","#142c68"],
-["Titanic","Romance",1997,7.9,"🚢","#28658c","#182340"],
-["The Notebook","Romance",2004,7.8,"💌","#ba668b","#542d55"],
-["La La Land","Romance",2016,8.0,"🎹","#e5a03e","#693c77"],
-["Pride & Prejudice","Romance",2005,7.8,"🌹","#a35b6d","#422e48"],
-["Joker","Drama",2019,8.4,"🃏","#a53a45","#25202f"],
-["Gladiator","Action",2000,8.5,"⚔️","#ad7a40","#392c31"],
-["Top Gun: Maverick","Action",2022,8.2,"✈️","#397ba3","#1a2b49"],
-["John Wick","Action",2014,7.4,"🎯","#3a4b79","#17182b"],
-["Mission: Impossible - Fallout","Action",2018,7.7,"💣","#b64e35","#34213b"],
-["Mad Max: Fury Road","Action",2015,8.1,"🏎️","#d77a37","#4b2931"],
-["Spider-Man: No Way Home","Action",2021,8.2,"🕷️","#b83e47","#253b76"],
-["Iron Man","Action",2008,7.9,"🤖","#bb4e35","#252b46"],
-["Avengers: Endgame","Action",2019,8.4,"🛡️","#7d6a9f","#28233d"],
-["Black Panther","Action",2018,7.3,"🐈‍⬛","#7052a6","#17162f"],
-["Guardians of the Galaxy","Sci-Fi",2014,8.0,"🚀","#a44c85","#25204c"],
-["The Matrix","Sci-Fi",1999,8.7,"🕶️","#31835b","#101e1b"],
-["Blade Runner 2049","Sci-Fi",2017,8.0,"🌆","#d47b4b","#32274b"],
-["The Martian","Sci-Fi",2015,8.0,"🔴","#b65a3d","#392b3a"],
-["Arrival","Sci-Fi",2016,7.9,"👽","#4b8b9c","#26354b"],
-["Jurassic Park","Adventure",1993,8.2,"🦖","#8caa42","#253a2d"],
-["The Lord of the Rings: The Fellowship of the Ring","Fantasy",2001,8.9,"💍","#b89a4c","#293f37"],
-["The Lord of the Rings: The Two Towers","Fantasy",2002,8.8,"🗡️","#a27b46","#283d34"],
-["The Lord of the Rings: The Return of the King","Fantasy",2003,9.0,"👑","#d1a84e","#343342"],
-["Harry Potter and the Philosopher's Stone","Fantasy",2001,7.7,"🪄","#8668c4","#293252"],
-["Harry Potter and the Prisoner of Azkaban","Fantasy",2004,7.9,"🦉","#516caa","#20263e"],
-["Fantastic Beasts","Fantasy",2016,7.2,"🪄","#a67a52","#30345b"],
-["The Lion King","Animation",1994,8.5,"🦁","#e2a33c","#78402e"],
-["Toy Story","Animation",1995,8.3,"🤠","#4f9ad0","#4b397b"],
-["Finding Nemo","Animation",2003,8.2,"🐠","#28a4d0","#15517e"],
-["Up","Animation",2009,8.3,"🎈","#e3ad54","#4b7bb5"],
-["Inside Out","Animation",2015,8.1,"🌈","#cf6396","#5650a2"],
-["Coco","Animation",2017,8.4,"🎸","#e6a04b","#9b4255"],
-["Spider-Man: Into the Spider-Verse","Animation",2018,8.4,"🕸️","#e14857","#343a87"],
-["The Super Mario Bros. Movie","Animation",2023,7.0,"🍄","#e14c3e","#327cba"],
-["Shrek","Animation",2001,7.9,"🐸","#72a64e","#344d37"],
-["The Grand Budapest Hotel","Comedy",2014,8.1,"🏨","#e48cb4","#7153a5"],
-["Home Alone","Comedy",1990,7.7,"🏠","#c9573c","#4974a5"],
-["The Mask","Comedy",1994,6.9,"🎭","#65ad66","#266c70"],
-["3 Idiots","Comedy",2009,8.4,"🎓","#d9a84a","#43847a"],
-["PK","Comedy",2014,8.1,"👽","#68a7b6","#d08b49"],
-["Zindagi Na Milegi Dobara","Drama",2011,8.2,"🌊","#49a6ac","#315d89"]
+["The Shawshank Redemption","Drama",1994,9.3,"🔑"],
+["The Godfather","Crime",1972,9.2,"🕴️"],
+["The Dark Knight","Action",2008,9.0,"🦇"],
+["The Godfather Part II","Crime",1974,9.0,"♟️"],
+["12 Angry Men","Drama",1957,9.0,"⚖️"],
+["Schindler's List","Drama",1993,9.0,"🕯️"],
+["The Lord of the Rings: The Return of the King","Fantasy",2003,9.0,"👑"],
+["Pulp Fiction","Crime",1994,8.9,"💼"],
+["The Lord of the Rings: The Fellowship of the Ring","Fantasy",2001,8.9,"💍"],
+["Forrest Gump","Drama",1994,8.8,"🏃"],
+["Fight Club","Thriller",1999,8.8,"🥊"],
+["Inception","Sci-Fi",2010,8.8,"🌀"],
+["The Lord of the Rings: The Two Towers","Fantasy",2002,8.8,"🗡️"],
+["The Matrix","Sci-Fi",1999,8.7,"🕶️"],
+["Goodfellas","Crime",1990,8.7,"🎩"],
+["Interstellar","Sci-Fi",2014,8.7,"🚀"],
+["One Flew Over the Cuckoo's Nest","Drama",1975,8.7,"🪟"],
+["Se7en","Thriller",1995,8.6,"🌧️"],
+["The Silence of the Lambs","Thriller",1991,8.6,"🦋"],
+["Saving Private Ryan","War",1998,8.6,"🎖️"],
+["The Green Mile","Drama",1999,8.6,"💚"],
+["Terminator 2: Judgment Day","Sci-Fi",1991,8.6,"🤖"],
+["Back to the Future","Sci-Fi",1985,8.5,"⏰"],
+["The Pianist","Drama",2002,8.5,"🎹"],
+["Gladiator","Action",2000,8.5,"⚔️"],
+["The Departed","Crime",2006,8.5,"🚔"],
+["The Prestige","Thriller",2006,8.5,"🎩"],
+["Whiplash","Drama",2014,8.5,"🥁"],
+["The Lion King","Animation",1994,8.5,"🦁"],
+["Spider-Man: Across the Spider-Verse","Animation",2023,8.6,"🕸️"],
+["Avengers: Infinity War","Action",2018,8.4,"💎"],
+["Avengers: Endgame","Action",2019,8.4,"🛡️"],
+["Joker","Thriller",2019,8.4,"🃏"],
+["Django Unchained","Western",2012,8.5,"🤠"],
+["The Wolf of Wall Street","Drama",2013,8.2,"📈"],
+["The Truman Show","Drama",1998,8.2,"📺"],
+["Jurassic Park","Adventure",1993,8.2,"🦖"],
+["Top Gun: Maverick","Action",2022,8.2,"✈️"],
+["Shutter Island","Thriller",2010,8.2,"🏝️"],
+["Casino Royale","Action",2006,8.0,"🃏"],
+["Skyfall","Action",2012,7.8,"🌧️"],
+["John Wick","Action",2014,7.4,"🎯"],
+["Mission: Impossible - Fallout","Action",2018,7.7,"💣"],
+["Mad Max: Fury Road","Action",2015,8.1,"🏎️"],
+["The Batman","Action",2022,7.8,"🦇"],
+["Iron Man","Action",2008,7.9,"🦾"],
+["Black Panther","Action",2018,7.3,"🐈‍⬛"],
+["Guardians of the Galaxy","Sci-Fi",2014,8.0,"🌌"],
+["Avatar","Sci-Fi",2009,7.9,"🌠"],
+["Avatar: The Way of Water","Sci-Fi",2022,7.6,"🌊"],
+["Dune","Sci-Fi",2021,8.0,"🏜️"],
+["Dune: Part Two","Sci-Fi",2024,8.5,"☀️"],
+["Blade Runner 2049","Sci-Fi",2017,8.0,"🌆"],
+["The Martian","Sci-Fi",2015,8.0,"🔴"],
+["Arrival","Sci-Fi",2016,7.9,"👽"],
+["Edge of Tomorrow","Sci-Fi",2014,7.9,"⏳"],
+["The Thing","Horror",1982,8.2,"❄️"],
+["Alien","Horror",1979,8.5,"👾"],
+["Aliens","Action",1986,8.4,"🚀"],
+["The Shining","Horror",1980,8.4,"🚪"],
+["Get Out","Horror",2017,7.8,"👁️"],
+["A Quiet Place","Horror",2018,7.5,"🤫"],
+["The Conjuring","Horror",2013,7.5,"🏚️"],
+["It","Horror",2017,7.3,"🎈"],
+["The Exorcist","Horror",1973,8.1,"🕯️"],
+["Harry Potter and the Sorcerer's Stone","Fantasy",2001,7.7,"⚡"],
+["Harry Potter and the Prisoner of Azkaban","Fantasy",2004,7.9,"🦉"],
+["Fantastic Beasts and Where to Find Them","Fantasy",2016,7.2,"🪄"],
+["Pirates of the Caribbean: The Curse of the Black Pearl","Adventure",2003,8.1,"🏴‍☠️"],
+["Indiana Jones: Raiders of the Lost Ark","Adventure",1981,8.4,"🧭"],
+["The Mummy","Adventure",1999,7.1,"🐪"],
+["The Grand Budapest Hotel","Comedy",2014,8.1,"🏨"],
+["Groundhog Day","Comedy",1993,8.0,"⏰"],
+["Home Alone","Comedy",1990,7.7,"🏠"],
+["The Mask","Comedy",1994,6.9,"🎭"],
+["Toy Story","Animation",1995,8.3,"🤠"],
+["Finding Nemo","Animation",2003,8.2,"🐠"],
+["Up","Animation",2009,8.3,"🎈"],
+["Inside Out","Animation",2015,8.1,"🌈"],
+["Coco","Animation",2017,8.4,"🎸"],
+["WALL-E","Animation",2008,8.4,"🤖"],
+["The Incredibles","Animation",2004,8.0,"🦸"],
+["Ratatouille","Animation",2007,8.1,"🐀"],
+["La La Land","Romance",2016,8.0,"🎹"],
+["Titanic","Romance",1997,7.9,"🚢"],
+["Eternal Sunshine of the Spotless Mind","Romance",2004,8.3,"💭"],
+["The Notebook","Romance",2004,7.8,"💌"],
+["Pride & Prejudice","Romance",2005,7.8,"🌹"],
+["The Social Network","Drama",2010,7.8,"💻"],
+["Oppenheimer","Drama",2023,8.3,"💥"],
+["The Imitation Game","Drama",2014,8.0,"🔐"],
+["Catch Me If You Can","Crime",2002,8.1,"🛫"],
+["The Bourne Identity","Action",2002,7.8,"🕵️"],
+["Logan","Action",2017,8.1,"🐺"],
+["Deadpool","Action",2016,8.0,"🔴"],
+["The Hunger Games","Sci-Fi",2012,7.2,"🏹"],
+["The Maze Runner","Sci-Fi",2014,6.8,"🏃"],
+["The Lego Movie","Animation",2014,7.7,"🧱"],
+["How to Train Your Dragon","Animation",2010,8.1,"🐉"]
 ];
+const palettes=[["#6c3fba","#17214b"],["#a84343","#281a35"],["#247b91","#16254b"],["#b17a38","#38234c"],["#44855e","#1b3145"],["#a54d81","#2b234c"],["#7d6a9f","#222641"]];
+const genres=["All",...new Set(data.map(m=>m[1]))];
 let active="All";
-const categories=["All","Action","Sci-Fi","Drama","Romance","Fantasy","Animation","Adventure","Comedy"];
-const search=document.getElementById("search");
-const sort=document.getElementById("sort");
-const grid=document.getElementById("movies");
-const count=document.getElementById("count");
+const search=document.getElementById("search"),sort=document.getElementById("sort"),grid=document.getElementById("movies"),count=document.getElementById("count");
 const filters=document.getElementById("filters");
-
-categories.forEach(cat=>{
- const b=document.createElement("button");
- b.className="chip"+(cat==="All"?" active":"");
- b.textContent=cat;
- b.onclick=()=>{
-   active=cat;
-   document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.textContent===cat));
-   render();
- };
- filters.appendChild(b);
-});
-
+genres.forEach(g=>{const b=document.createElement("button");b.className="chip"+(g==="All"?" active":"");b.textContent=g;b.onclick=()=>{active=g;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.textContent===g));render()};filters.appendChild(b)});
 function render(){
- let q=search.value.trim().toLowerCase();
- let list=data.filter(m=>(active==="All"||m[1]===active)&&
-   (m[0].toLowerCase().includes(q)||m[1].toLowerCase().includes(q)||String(m[2]).includes(q)));
- if(sort.value==="rating")list.sort((a,b)=>b[3]-a[3]);
- if(sort.value==="year")list.sort((a,b)=>b[2]-a[2]);
- if(sort.value==="az")list.sort((a,b)=>a[0].localeCompare(b[0]));
- count.textContent=list.length+" movies";
- grid.innerHTML="";
- if(!list.length){grid.innerHTML='<div class="empty">No movies found. Try another search.</div>';return;}
- list.forEach(m=>{
-   let card=document.createElement("article");
-   card.className="card";
-   card.innerHTML=`<div class="poster" style="--a:${m[5]};--b:${m[6]}"><span class="emoji">${m[4]}</span><strong>${m[0]}</strong></div>
-   <div class="info"><div class="title">${m[0]}</div><div class="meta"><span>${m[2]}</span><span class="rating">★ ${m[3]}</span></div><span class="tag">${m[1]}</span></div>`;
-   card.onclick=()=>showDetails(m);
-   grid.appendChild(card);
- });
+const q=search.value.trim().toLowerCase();
+let list=data.filter(m=>(active==="All"||m[1]===active)&&(m[0].toLowerCase().includes(q)||m[1].toLowerCase().includes(q)||String(m[2]).includes(q)));
+if(sort.value==="rating")list.sort((a,b)=>b[3]-a[3]);
+if(sort.value==="year")list.sort((a,b)=>b[2]-a[2]);
+if(sort.value==="az")list.sort((a,b)=>a[0].localeCompare(b[0]));
+count.textContent=list.length+" movies";grid.innerHTML="";
+if(!list.length){grid.innerHTML='<div class="empty">No movies found. Try another search.</div>';return}
+list.forEach((m,i)=>{const p=palettes[i%palettes.length],c=document.createElement("article");c.className="card";
+c.innerHTML=`<div class="poster" style="--a:${p[0]};--b:${p[1]}"><span class="emoji">${m[4]}</span><strong>${m[0]}</strong></div><div class="info"><div class="title">${m[0]}</div><div class="meta"><span>${m[2]}</span><span class="rating">★ ${m[3]}</span></div><span class="tag">${m[1]}</span></div>`;
+c.onclick=()=>showDetails(m);grid.appendChild(c)});
 }
-function showDetails(m){
- document.getElementById("details").innerHTML=`<div style="font-size:52px">${m[4]}</div><h2>${m[0]}</h2><p style="color:#aeb6d0">${m[1]} • ${m[2]}</p><p class="rating">★ ${m[3]} / 10</p><p>This movie is part of the CineFind sample collection. Explore more movies using the search and genre filters.</p>`;
- document.getElementById("modal").classList.add("show");
-}
+function showDetails(m){document.getElementById("details").innerHTML=`<div style="font-size:52px">${m[4]}</div><h2>${m[0]}</h2><p style="color:#aeb6d0">${m[1]} • ${m[2]}</p><p class="rating">★ ${m[3]} / 10</p><p>This movie is part of the CineFind Hollywood collection.</p>`;document.getElementById("modal").classList.add("show")}
 function closeModal(){document.getElementById("modal").classList.remove("show")}
 document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
-search.addEventListener("input",render);
-sort.addEventListener("change",render);
-render();
+search.addEventListener("input",render);sort.addEventListener("change",render);render();
 </script>
 </body>
-  </html>
+</html>
+
 
 
